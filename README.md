@@ -47,24 +47,12 @@ Wallscope has already tried visualising data by using sunbursts and circle packi
 They have vocabularies, datasets and an API for me to test with.
 I don't have to understand how _linked data_ / _knowledge graphs_ but it's a big part of what they do, so I probably should.
 
-They use Taiga(?) for projectplanning.
+They use Taiga for projectplanning.
+We meet every monday 1pm and keep in touch via Slack.
 
-#### Is there anything that is protected?
+Our user is someone who knows something and wants to visualize that knowledge. The user doesn't necessarily get the technology that Strvct uses.
 
-Maybe, he's gonna check.
-
-#### Who is our user?
-
-Someone who knows something, but doesnt get the technology.
-Exposing their knowledge so 'we' can use it.
-People create diagrams, word documents & files.
-
-Mostly tree diagrams, fruit - vegetables, banana apple etc. as example.
-
-We meet every moday, 3pm GMT+1
-We keep in touch via Slack.
-
-## Questions
+### Questions
 
 - Everything in English?
 - Deliverables as Word documents or a wiki?
