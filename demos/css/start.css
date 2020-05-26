@@ -65,17 +65,19 @@ div {
   justify-content: space-around;
 }
 
-button {
+.button {
   color: #25167a;
   background: transparent;
   width: 42%;
+  text-align: center;
   padding: 1em;
   border-radius: 0.5em;
   border: 0.25em solid #25167a;
   transition: background-color 0.2s;
 }
 
-button:hover {
+.button:hover,
+.button:focus {
   color: white;
   background: #25167a;
 }
