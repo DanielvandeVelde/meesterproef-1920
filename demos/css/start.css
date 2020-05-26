@@ -2,12 +2,13 @@ body {
   width: 100vw;
   height: 100vh;
   background: #25167a;
-  background: radial-gradient(
-    ellipse at center,
-    #25167a00,
-    #25167acc 5%,
-    #25167aff 35%,
-    #25167aff 100%
+  background-image: linear-gradient(
+    to left top,
+    #25167a,
+    #40318a,
+    #584b99,
+    #7065a8,
+    #8880b6
   );
   display: flex;
   align-items: center;
@@ -19,10 +20,21 @@ header {
   position: fixed;
   left: 0.5em;
   top: 0.5em;
-  font-size: 5em;
+  font-size: 1.75em;
+  letter-spacing: -0.125em;
   display: flex;
   justify-content: center;
-  color: #ccc;
+  color: #ffffffcc;
+  font-weight: bold;
+}
+
+h1 span {
+  color: #fff021;
+  font-weight: normal;
+  font-family: serif;
+  font-size: 1.125em;
+  letter-spacing: -0.125em;
+  margin: -2px;
 }
 
 main {
@@ -33,6 +45,7 @@ section {
   background-color: white;
   padding: 3em 3em;
   border-radius: 1em;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
 }
 
 p {
@@ -61,9 +74,20 @@ button {
   padding: 1em;
   border-radius: 0.5em;
   border: 0.25em solid #25167a;
+  transition: background-color 0.2s;
 }
 
 button:hover {
   color: white;
   background: #25167a;
+}
+
+svg {
+  width: 100vw;
+  height: 50vh;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  transform: rotate(180deg) translateX(130px) scaleX(1.25);
 }
