@@ -82,7 +82,7 @@ div {
   background: #25167a;
 }
 
-img {
+main > img {
   width: 100vw;
   height: 50vh;
   z-index: -1;

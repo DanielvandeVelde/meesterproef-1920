@@ -38,8 +38,9 @@ input::-webkit-file-upload-button {
   color: #25167a;
   background: transparent;
   text-align: center;
+  font-size: 1em;
   border-radius: 0.5em;
-  padding: 0.25em;
+  padding: 1em;
   border: 0.125em solid #25167a;
   transition: background-color 0.2s;
 }
