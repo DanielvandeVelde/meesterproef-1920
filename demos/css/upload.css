@@ -16,3 +16,10 @@ input {
 label {
   text-align: center;
 }
+
+/*
+Until there is Javascript/feature detection this stays off.
+*/
+label > span {
+  display: none;
+}
