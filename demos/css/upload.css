@@ -1,0 +1,18 @@
+form {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  padding: 1em;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin: 0 auto 1em;
+}
+
+label {
+  text-align: center;
+}
