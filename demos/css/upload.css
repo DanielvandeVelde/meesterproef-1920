@@ -21,11 +21,18 @@ label {
   width: 50%;
 }
 
-/*
-Until there is Javascript/feature detection this stays off.
-*/
-label > span {
+label {
   display: none;
+}
+
+input::after {
+  position: relative;
+  display: block;
+  text-align: center;
+  bottom: 0;
+  padding-top: 22vh;
+  content: "Choose a file or drag it here.";
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='250px' width='600px'><text x='175' y='175' fill='rgb(37,22,122)' font-size='200px'>⭳</text></svg>");
 }
 
 input::-webkit-file-upload-button {
