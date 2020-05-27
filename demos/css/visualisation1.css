@@ -1,0 +1,165 @@
+body {
+  background-color: #25167a;
+  display: flex;
+  flex-direction: row;
+  font-family: sans-serif;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  padding: 5vh 2vw 0 2vw;
+}
+
+header {
+  font-size: 1.5em;
+  letter-spacing: 0.125em;
+  color: #ffffffcc;
+  font-weight: lighter;
+  user-select: none;
+  padding-bottom: 2.5vh;
+}
+
+h1 span {
+  color: yellow;
+  font-weight: lighter;
+}
+
+svg {
+  background-color: white;
+  width: 69vw;
+  border-radius: 2em;
+  margin: 2vh 1vw 0 0;
+  height: 95vh;
+}
+
+nav {
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5em;
+}
+
+nav > a {
+  padding: 2em 2em 1.75em;
+  color: white;
+  text-decoration: none;
+  border-bottom: 0.25em solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  font-weight: bold;
+}
+
+nav > .selected {
+  border-bottom: 0.25em solid #ccc;
+}
+
+aside > div {
+  border-bottom: 1px solid white;
+}
+
+#content,
+#design {
+  visibility: collapse;
+  display: none;
+}
+
+#content:target,
+#design:target {
+  display: block;
+  visibility: visible;
+}
+
+aside > div > span {
+  color: #ccc;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  display: block;
+  padding-bottom: 2em;
+  margin: 1em 0;
+}
+
+aside > div input {
+  width: 30%;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  width: 25%;
+  display: flex;
+  align-content: space-around;
+  padding: 0.5em 0.75em;
+  margin: 0 0.25em;
+}
+
+aside > div:first-of-type > input:first-of-type {
+  margin-bottom: 2em;
+}
+
+aside > div:first-of-type > span:first-of-type {
+  padding: 0;
+}
+
+aside > div > div {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+aside > div > div:first-of-type {
+  margin: 0;
+}
+
+aside > div > div > span {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  font-weight: bold;
+  width: 33%;
+  padding-left: 0.75em;
+  padding-bottom: 0.5em;
+}
+
+aside > div > input:first-of-type {
+  width: auto;
+}
+
+#content input:first-of-type {
+  margin-left: 0;
+}
+
+#content > button {
+  width: 100%;
+  text-align: center;
+  border: 1px solid white;
+  padding: 1em;
+  background-color: transparent;
+  color: white;
+}
+
+#content > button::before {
+  content: "+ ";
+}
+
+#design button {
+  width: 5em;
+  height: 5em;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: rgb(55, 68, 105);
+  stroke-width: 1px;
+}
