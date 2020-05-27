@@ -1,3 +1,123 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0.5em;
+  left: 0;
+  width: 100vw;
+  margin-left: auto;
+  font-size: 4.2em;
+  letter-spacing: -0.125em;
+  display: flex;
+  justify-content: center;
+  color: #ffffffcc;
+  font-weight: bold;
+  user-select: none;
+}
+
+h1 span {
+  color: #fff021;
+  font-weight: lighter;
+  margin: 0 -1px;
+}
+
+main {
+  width: 720px;
+}
+
+section {
+  background-color: #eee;
+  padding: 3em 3em;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+}
+
+p {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  padding: 1em;
+}
+
+h2 {
+  color: #25167a;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #ccc;
+}
+
+section > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
+
+.button {
+  color: #25167a;
+  background: transparent;
+  text-align: center;
+  border: none;
+  transition: background-color 0.2s;
+  font-weight: bold;
+  border-radius: 2em;
+  padding: 1em 2em;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.button::after {
+  content: "➞";
+  font-size: 1.5em;
+  padding-left: 0.25em;
+  position: relative;
+  right: 0;
+  top: -2px;
+}
+
+input::after {
+  position: relative;
+  display: block;
+  text-align: center;
+  bottom: 0;
+  padding-top: 22vh;
+  content: "Choose a file or drag it here.";
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='250px' width='600px'><text x='175' y='175' fill='rgb(37,22,122)' font-size='200px'>⭳</text></svg>");
+}
+
+.button:hover,
+.button:focus {
+  background-color: #25167a;
+  color: white;
+}
+
+.button:hover:after {
+  animation: slide 1s alternate infinite;
+}
+
+@keyframes slide {
+  0% {
+    right: -2px;
+  }
+  100% {
+    right: -0.5em;
+  }
+}
+
 form {
   margin-bottom: 1em;
   font-size: 1.5em;
@@ -46,31 +166,4 @@ section {
 
 label {
   display: none;
-}
-
-input::after {
-  position: relative;
-  display: block;
-  text-align: center;
-  bottom: 0;
-  padding-top: 22vh;
-  content: "Choose a file or drag it here.";
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='250px' width='600px'><text x='175' y='175' fill='rgb(37,22,122)' font-size='200px'>⭳</text></svg>");
-}
-
-input::-webkit-file-upload-button {
-  color: #25167a;
-  background: transparent;
-  text-align: center;
-  font-size: 1em;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  border: 0.125em solid #25167a;
-  transition: background-color 0.2s;
-}
-
-input::-webkit-file-upload-button:hover,
-input::-webkit-file-upload-button:focus {
-  color: white;
-  background: #25167a;
 }
