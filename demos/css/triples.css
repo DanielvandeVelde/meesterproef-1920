@@ -52,7 +52,7 @@ main {
 }
 
 tr td input {
-  width: calc(100% - 1.125em);
+  width: calc(100% - 2.75em);
 }
 
 section {
@@ -63,6 +63,11 @@ section {
 section > input {
   margin-left: auto;
   margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+th input {
+  padding: 0.5em;
 }
 
 table tbody tr:focus-within {
@@ -85,6 +90,10 @@ tr:nth-child(even) {
   background-color: #eee;
 }
 
+tr td input:focus {
+  background-color: white;
+}
+
 section > input:focus,
 th input:focus {
   box-shadow: 0 0 0.125em #25167a;
@@ -101,25 +110,22 @@ th {
 
 td {
   border: 1px solid #aaa;
-  padding: 0.75em;
 }
 
 input {
   display: block;
   border-radius: 0.25em;
   border: 1px solid #aaa;
-  padding: 0.5em;
+  padding: 1.25em;
   margin: 0.125em;
-}
-
-input {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMjcgMjQuNTdsLTUuNjQ3LTUuNjQ4YTguODk1IDguODk1IDAgMCAwIDEuNTIyLTQuOTg0QzIyLjg3NSA5LjAxIDE4Ljg2NyA1IDEzLjkzOCA1IDkuMDEgNSA1IDkuMDEgNSAxMy45MzhjMCA0LjkyOSA0LjAxIDguOTM4IDguOTM4IDguOTM4YTguODg3IDguODg3IDAgMCAwIDQuOTg0LTEuNTIyTDI0LjU2OCAyNyAyNyAyNC41N3ptLTEzLjA2Mi00LjQ0NWE2LjE5NCA2LjE5NCAwIDAgMS02LjE4OC02LjE4OCA2LjE5NSA2LjE5NSAwIDAgMSA2LjE4OC02LjE4OCA2LjE5NSA2LjE5NSAwIDAgMSA2LjE4OCA2LjE4OCA2LjE5NSA2LjE5NSAwIDAgMS02LjE4OCA2LjE4OHoiLz48L3N2Zz4=");
   background-repeat: no-repeat;
   background-position: 100% 0;
 }
 
 th input {
-  width: calc(100% - 1.375em);
+  padding: 0.5em 1.5em;
+  width: calc(100% - 3.375em);
 }
 
 td input {
