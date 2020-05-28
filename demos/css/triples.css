@@ -55,10 +55,6 @@ tr td input {
   width: calc(100% - 1.125em);
 }
 
-tr td:hover input {
-  background-color: #eee;
-}
-
 section {
   margin-top: 2.5em;
   width: 75vw;
@@ -67,6 +63,10 @@ section {
 section > input {
   margin-left: auto;
   margin-bottom: 1em;
+}
+
+table tbody tr:focus-within {
+  background-color: #ddd;
 }
 
 table {
@@ -83,6 +83,12 @@ table tbody tr:hover {
 
 tr:nth-child(even) {
   background-color: #eee;
+}
+
+section > input:focus,
+th input:focus {
+  box-shadow: 0 0 0.125em #25167a;
+  border: 1px solid #25167a;
 }
 
 th {
@@ -149,4 +155,20 @@ tfoot button::before {
 tfoot button:hover {
   color: white;
   background-color: #25167a;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875em;
 }
