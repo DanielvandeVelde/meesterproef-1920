@@ -94,8 +94,11 @@ tr td input:focus {
   background-color: white;
 }
 
-section > input:focus,
-th input:focus {
+tr td input {
+  border: 1px solid transparent;
+}
+
+input:focus {
   box-shadow: 0 0 0.125em #25167a;
   border: 1px solid #25167a;
 }
