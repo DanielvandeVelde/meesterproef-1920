@@ -12,8 +12,8 @@ Currently they can be found here:
 - [Starting page](https://danielvandevelde.github.io/meesterproef-1920/demos/start.html)
 - [Upload page](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation2.html)
 - [Triples + visualisation](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation1.html)
-- [visualisation editor](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation2.html)
-- [triples](https://danielvandevelde.github.io/meesterproef-1920/demos/triples.html)
+- [Visualisation + visual editor](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation2.html)
+- [Triples](https://danielvandevelde.github.io/meesterproef-1920/demos/triples.html)
 
 These are just rough prototypes and they all have various degrees of 'kinda' working.  
 Most important is getting some information from various stakeholders about the design, look & feel as well as usability and all that.
