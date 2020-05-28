@@ -33,6 +33,7 @@ var margin = { top: 20, right: 90, bottom: 30, left: 90 },
   height = 500 - margin.top - margin.bottom;
 var svg = d3
   .select("body")
+  .append("main")
   .append("svg")
   .attr("width", width + margin.right + margin.left)
   .attr("height", height + margin.top + margin.bottom)
@@ -81,7 +82,7 @@ function update(source) {
     .attr("class", "node")
     .attr("r", 1e-6)
     .style("fill", function(d) {
-      return d.parent ? "rgb(39, 43, 77)" : "#fe6e9e";
+      return d.parent ? "#25167a" : "#fff021";
     });
   nodeEnter
     .append("rect")
@@ -97,9 +98,7 @@ function update(source) {
       return d.parent ? 1 : 0;
     })
     .attr("stroke", function(d) {
-      return d.children || d._children
-        ? "rgb(3, 192, 220)"
-        : "rgb(38, 222, 176)";
+      return d.children || "#fff021";
     })
     .attr("stroke-dasharray", function(d) {
       return d.children || d._children ? "0" : "2.2";
@@ -118,7 +117,7 @@ function update(source) {
     .append("text")
     .style("fill", function(d) {
       if (d.parent) {
-        return d.children || d._children ? "#ffffff" : "rgb(38, 222, 176)";
+        return d.children || d._children ? "#ffffff" : "#fff021";
       }
       return "rgb(39, 43, 77)";
     })
