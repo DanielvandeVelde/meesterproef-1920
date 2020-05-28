@@ -1,0 +1,152 @@
+header {
+  background-color: #25167a;
+  color: white;
+}
+
+header span {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  padding: 1.5em 0.25em;
+  color: #eee;
+  font-weight: bold;
+  letter-spacing: -0.125em;
+  font-size: 1.5em;
+}
+
+th {
+  cursor: pointer;
+}
+
+span i {
+  color: #fff021;
+  font-weight: lighter;
+}
+
+ul {
+  display: flex;
+  padding: 0 0.25em;
+}
+
+ul li {
+  padding: 1em 2em;
+  cursor: pointer;
+}
+
+ul li:first-child {
+  color: black;
+  background: white;
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+tr td input {
+  width: calc(100% - 1.125em);
+}
+
+tr td:hover input {
+  background-color: #eee;
+}
+
+section {
+  margin-top: 2.5em;
+  width: 75vw;
+}
+
+section > input {
+  margin-left: auto;
+  margin-bottom: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.25em;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #aaa;
+}
+
+table tbody tr:hover {
+  background-color: #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+th {
+  text-align: left;
+  border: 1px solid #aaa;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAQAAADYWf5HAAAAkElEQVQoz7XQMQ5AQBCF4dWQSJxC5wwax1Cq1e7BAdxD5SL+Tq/QCM1oNiJidwox0355mXnG/DrEtIQ6azioNZQxI0ykPhTQIwhCR+BmBYtlK7kLJYwWCcJA9M4qdrZrd8pPjZWPtOqdRQy320YSV17OatFC4euts6z39GYMKRPCTKY9UnPQ6P+GtMRfGtPnBCiqhAeJPmkqAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.5em) 0.875em;
+}
+
+td {
+  border: 1px solid #aaa;
+  padding: 0.75em;
+}
+
+input {
+  display: block;
+  border-radius: 0.25em;
+  border: 1px solid #aaa;
+  padding: 0.5em;
+  margin: 0.125em;
+}
+
+input {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMjcgMjQuNTdsLTUuNjQ3LTUuNjQ4YTguODk1IDguODk1IDAgMCAwIDEuNTIyLTQuOTg0QzIyLjg3NSA5LjAxIDE4Ljg2NyA1IDEzLjkzOCA1IDkuMDEgNSA1IDkuMDEgNSAxMy45MzhjMCA0LjkyOSA0LjAxIDguOTM4IDguOTM4IDguOTM4YTguODg3IDguODg3IDAgMCAwIDQuOTg0LTEuNTIyTDI0LjU2OCAyNyAyNyAyNC41N3ptLTEzLjA2Mi00LjQ0NWE2LjE5NCA2LjE5NCAwIDAgMS02LjE4OC02LjE4OCA2LjE5NSA2LjE5NSAwIDAgMSA2LjE4OC02LjE4OCA2LjE5NSA2LjE5NSAwIDAgMSA2LjE4OCA2LjE4OCA2LjE5NSA2LjE5NSAwIDAgMS02LjE4OCA2LjE4OHoiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+}
+
+th input {
+  width: calc(100% - 1.375em);
+}
+
+td input {
+  border: none;
+  background: none;
+}
+
+th > span {
+  margin: 0 1.5em;
+  font-weight: bolder;
+  line-height: 3em;
+}
+
+tfoot td {
+  padding: 0;
+}
+
+tfoot button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 1em;
+  background-color: transparent;
+  transition: 0.2s;
+  border-radius: 0 0 0.25em 0.25em;
+}
+
+tfoot button::before {
+  content: "+";
+  padding-right: 0.5em;
+}
+
+tfoot button:hover {
+  color: white;
+  background-color: #25167a;
+}
