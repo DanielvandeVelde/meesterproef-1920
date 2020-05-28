@@ -121,19 +121,6 @@ document.onload = (function(d3, saveAs, Blob, undefined) {
     window.onresize = function() {
       thisGraph.updateWindow(svg);
     };
-
-    // handle download data
-    d3.select("#download-input").on("click", function() {
-      var saveEdges = [];
-      thisGraph.edges.forEach(function(val, i) {
-        saveEdges.push({ source: val.source.id, target: val.target.id });
-      });
-      var blob = new Blob(
-        [window.JSON.stringify({ nodes: thisGraph.nodes, edges: saveEdges })],
-        { type: "text/plain;charset=utf-8" }
-      );
-      saveAs(blob, "mydag.json");
-    });
   };
 
   GraphCreator.prototype.setIdCt = function(idct) {
@@ -412,7 +399,7 @@ document.onload = (function(d3, saveAs, Blob, undefined) {
       var xycoords = d3.mouse(thisGraph.svgG.node()),
         d = {
           id: thisGraph.idct++,
-          title: "new concept",
+          title: "new object",
           x: xycoords[0],
           y: xycoords[1]
         };
@@ -587,11 +574,6 @@ document.onload = (function(d3, saveAs, Blob, undefined) {
 
   /**** MAIN ****/
 
-  // warn the user when leaving
-  window.onbeforeunload = function() {
-    return "Make sure to save your graph locally before leaving :-)";
-  };
-
   var docEl = document.documentElement,
     bodyEl = document.getElementsByTagName("body")[0];
 
@@ -603,10 +585,10 @@ document.onload = (function(d3, saveAs, Blob, undefined) {
 
   // initial node data
   var nodes = [
-    { title: "new concept", id: 0, x: xLoc, y: yLoc },
-    { title: "new concept", id: 1, x: xLoc, y: yLoc + 200 }
+    { title: "subject1", id: 0, x: xLoc, y: yLoc },
+    { title: "object1", id: 1, x: xLoc, y: yLoc + 200 }
   ];
-  var edges = [{ source: nodes[1], target: nodes[0] }];
+  var edges = [{ source: nodes[0], target: nodes[1] }];
 
   /** MAIN SVG **/
   var svg = d3
