@@ -7,19 +7,44 @@ fetch(
 
     const jsonld = ttl2jsonld.parse(ttl);
     const cleanJSON = cleanData(jsonld);
+
+    nodeArray = getNodes(cleanJSON);
+    arrowArray = getArrows(cleanJSON, nodeArray);
+
     const dataset = {
-      nodes: [
-        //Array of nodes
-        { name: "Name" }
-      ],
+      nodes: nodeArray,
       arrows: [
         //Arrows from to
         { from: 0, to: 0 }
       ]
     };
 
-    console.log(cleanJSON);
+    console.log(dataset);
   });
+
+function getArrows(cleanData, nodeArray) {
+  let stuff = cleanData.map((item, i) => {
+    //i
+    if ("broader" == "id") {
+      return {
+        from: i,
+        to: parent
+      };
+    }
+  });
+
+  return stuff;
+}
+
+function getNodes(cleanData) {
+  let nodes = cleanData.map(node => {
+    return {
+      name: node.id
+    };
+  });
+
+  return nodes;
+}
 
 function cleanData(data) {
   let cleanedData = data["@graph"].map(item => {
@@ -71,6 +96,8 @@ QUESTIONS:
 
 How important/frequent are things like Keywords and Notes ?
 What is skos:related, siblings? Are they connected?
+Is Notes normal and do they need to be kept in?
+Are the Arrays for prefLabels normal, do they always end in @en? 
 
 
 **/
