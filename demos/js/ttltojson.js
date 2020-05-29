@@ -1,22 +1,42 @@
-fetch(
-  "https://raw.githubusercontent.com/wallscope/strvct-students/master/vocabularies/peacetech_medium.ttl"
-)
-  .then(response => response.text())
-  .then(text => {
-    const ttl = text;
+getRadioButton(true);
 
-    const jsonld = ttl2jsonld.parse(ttl);
-    const cleanJSON = cleanData(jsonld);
+function getRadioButton(firstTime) {
+  const urlArray = [
+    "https://raw.githubusercontent.com/wallscope/strvct-students/master/vocabularies/animals_small.ttl",
+    "https://raw.githubusercontent.com/wallscope/strvct-students/master/vocabularies/peacetech_medium.ttl",
+    "https://raw.githubusercontent.com/wallscope/strvct-students/master/vocabularies/unesco_large.ttl"
+  ];
 
-    nodeArray = getNodes(cleanJSON);
-    arrowArray = getArrows(cleanJSON, nodeArray);
+  if (firstTime) {
+    d3.select("main").append("svg");
+    fetchDataset(urlArray[1]);
+    const formElement = document.getElementsByTagName("form")[0];
+    formElement.addEventListener("change", e => {
+      d3.select("svg").remove();
+      d3.select("main").append("svg");
+      fetchDataset(urlArray[e.target.id]);
+    });
+  }
+}
 
-    const dataset = {
-      nodes: nodeArray,
-      arrows: arrowArray
-    };
-    drawD3(dataset);
-  });
+function fetchDataset(url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(text => {
+      const jsonld = ttl2jsonld.parse(text);
+      const cleanJSON = cleanData(jsonld);
+
+      nodeArray = getNodes(cleanJSON);
+      arrowArray = getArrows(cleanJSON, nodeArray);
+
+      const dataset = {
+        nodes: nodeArray,
+        arrows: arrowArray
+      };
+
+      drawD3(dataset);
+    });
+}
 
 function getArrows(cleanData, nodeArray) {
   let arrowArray = new Array();
@@ -38,7 +58,9 @@ function getArrows(cleanData, nodeArray) {
 }
 
 function getNodes(cleanData) {
-  let nodes = cleanData.map(node => {
+  let nodes = new Object();
+
+  nodes = cleanData.map(node => {
     return {
       name: node.prefLabel ? node.prefLabel : node.id,
       id: node.id
@@ -78,17 +100,30 @@ function sanitizeString(string) {
 }
 
 function drawD3(dataset) {
-  var w = 1000;
-  var h = 600;
+  var w = 1920;
+  var h = 1000;
   var linkDistance = 200;
 
   var colors = d3.scale.category10();
 
   var svg = d3
-    .select("body")
-    .append("main")
-    .append("svg")
-    .attr({ width: w, height: h });
+    .select("main")
+    .select("svg")
+    .attr({ width: w, height: h })
+    .call(
+      d3.behavior.zoom().on("zoom", function() {
+        svg.attr(
+          "transform",
+          "translate(" +
+            d3.event.translate +
+            ")" +
+            " scale(" +
+            d3.event.scale +
+            ")"
+        );
+      })
+    )
+    .append("g");
 
   var force = d3.layout
     .force()
@@ -276,6 +311,7 @@ function drawD3(dataset) {
     });
   });
 }
+
 /**
 DONE:
 
@@ -284,21 +320,10 @@ Putting it through the ttl2jsonld parsing to get a somewhat decent JSON-LD file
 Getting the data out of it that I most likely need
 Broader consists of a link that links up to the parent node
 stripping broader of the link and naming it like the ID of the parent node
-
-TODO:
-
 Put it in a format to create graphs
-Create an array for links between parents and children
+Go over the nodeArray to find parents for children (a little too much !)
 
 Big dataset has preflabels as arrays, not strings.
   - All items in array end in e.g. "@en"
-
-QUESTIONS:
-
-How important/frequent are things like Keywords and Notes ?
-What is skos:related, siblings? Are they connected?
-Is Notes normal and do they need to be kept in?
-Are the Arrays for prefLabels normal, do they always end in @en?
-
 
 **/
