@@ -346,19 +346,3 @@ function drawD3(dataset) {
     });
   });
 }
-
-/**
-DONE:
-
-Grabbing the .ttl file with fetch
-Putting it through the ttl2jsonld parsing to get a somewhat decent JSON-LD file
-Getting the data out of it that I most likely need
-Broader consists of a link that links up to the parent node
-stripping broader of the link and naming it like the ID of the parent node
-Put it in a format to create graphs
-Go over the nodeArray to find parents for children (a little too much !)
-
-Big dataset has preflabels as arrays, not strings.
-  - All items in array end in e.g. "@en"
-
-**/
