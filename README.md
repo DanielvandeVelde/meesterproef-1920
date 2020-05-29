@@ -11,7 +11,7 @@ Currently they can be found here:
 
 - [Starting page](https://danielvandevelde.github.io/meesterproef-1920/demos/start.html)
 - [Upload page](https://danielvandevelde.github.io/meesterproef-1920/demos/upload.html)
-- [Triples + visualisation](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation1.html)
+- [Triples + visualisation](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation1.html#content)
 - [Visualisation + visual editor](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation2.html)
 - [Triples](https://danielvandevelde.github.io/meesterproef-1920/demos/triples.html)
 
