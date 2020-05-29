@@ -11,6 +11,7 @@ fetch(
 
     let array = jsonld["@graph"].map(item => {
       return {
+        id: item["@id"] ? sanitizeString(item["@id"]) : false,
         prefLabel: item["skos:prefLabel"],
         broader: item["skos:broader"]
           ? sanitizeString(item["skos:broader"]["@id"])
@@ -34,3 +35,20 @@ function sanitizeString(parameter) {
 
   return string;
 }
+
+/**
+
+DONE:
+
+Grabbing the .ttl file with fetch
+Putting it through the ttl2jsonld parsing to get a somewhat decent JSON-LD file
+Getting the data out of it that I most likely need
+Broader consists of a link that links up to the parent node
+stripping broader of the link and naming it like the parent node
+Some have a different ID (small Animal file does, so adding that too)
+
+TODO:
+
+Not quite sure yet
+
+**/
