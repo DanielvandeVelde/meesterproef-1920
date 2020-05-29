@@ -9,7 +9,7 @@ function getRadioButton(firstTime) {
 
   if (firstTime) {
     d3.select("main").append("svg");
-    fetchDataset(urlArray[1]);
+    fetchDataset(urlArray[0]);
     const formElement = document.getElementsByTagName("form")[0];
     formElement.addEventListener("change", e => {
       d3.select("svg").remove();
@@ -93,7 +93,9 @@ function cleanData(data) {
         }
       });
     } else {
-      preflabel = item["skos:prefLabel"] ? item["skos:prefLabel"] : item["@id"];
+      preflabel = item["skos:prefLabel"]
+        ? item["skos:prefLabel"]
+        : sanitizeString(item["@id"]);
     }
 
     let broader;
