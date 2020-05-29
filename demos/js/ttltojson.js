@@ -6,24 +6,28 @@ fetch(
     const ttl = text;
 
     const jsonld = ttl2jsonld.parse(ttl);
+    const cleanJSON = cleanData(jsonld);
 
-    console.log(jsonld);
-
-    let array = jsonld["@graph"].map(item => {
-      return {
-        id: item["@id"] ? sanitizeString(item["@id"]) : false,
-        prefLabel: item["skos:prefLabel"],
-        broader: item["skos:broader"]
-          ? sanitizeString(item["skos:broader"]["@id"])
-          : false,
-        hiddenLabel: item["skos:hiddenLabel"] ? item["skos:hiddenLabel"] : false
-      };
-    });
-    console.log(array);
+    console.log(cleanJSON);
   });
 
-function sanitizeString(parameter) {
-  let string = parameter;
+function cleanData(data) {
+  let cleanedData = data["@graph"].map(item => {
+    return {
+      id: item["@id"] ? sanitizeString(item["@id"]) : false,
+      prefLabel: item["skos:prefLabel"],
+      broader: item["skos:broader"]
+        ? sanitizeString(item["skos:broader"]["@id"])
+        : false,
+      hiddenLabel: item["skos:hiddenLabel"] ? item["skos:hiddenLabel"] : false,
+      note: item["skos:note"] ? item["skos:note"] : false
+    };
+  });
+
+  return cleanedData;
+}
+
+function sanitizeString(string) {
   string = string.match("([^/]+$)")[0]; //Grab everything behind the last "/"
   string = string.replace(/_/g, " "); //Replace "_" with space
   string = string.replace(/-/g, " "); //Replace "-" with space
@@ -37,18 +41,26 @@ function sanitizeString(parameter) {
 }
 
 /**
-
 DONE:
 
 Grabbing the .ttl file with fetch
 Putting it through the ttl2jsonld parsing to get a somewhat decent JSON-LD file
 Getting the data out of it that I most likely need
 Broader consists of a link that links up to the parent node
-stripping broader of the link and naming it like the parent node
-Some have a different ID (small Animal file does, so adding that too)
+stripping broader of the link and naming it like the ID of the parent node
 
 TODO:
 
-Not quite sure yet
+Put it in a format to create graphs
+Create an array for links between parents and children
+
+Big dataset has preflabels as arrays, not strings.
+  - All items in array end in e.g. "@en"
+
+QUESTIONS:
+
+How important/frequent are things like Keywords and Notes ?
+What is skos:related, siblings? Are they connected?
+
 
 **/
