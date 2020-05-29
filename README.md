@@ -10,7 +10,7 @@ These are based on the first sketches and are currently focused on look & feel a
 Currently they can be found here:
 
 - [Starting page](https://danielvandevelde.github.io/meesterproef-1920/demos/start.html)
-- [Upload page](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation2.html)
+- [Upload page](https://danielvandevelde.github.io/meesterproef-1920/demos/upload.html)
 - [Triples + visualisation](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation1.html)
 - [Visualisation + visual editor](https://danielvandevelde.github.io/meesterproef-1920/demos/visualisation2.html)
 - [Triples](https://danielvandevelde.github.io/meesterproef-1920/demos/triples.html)
