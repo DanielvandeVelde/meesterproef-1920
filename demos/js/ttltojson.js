@@ -15,7 +15,6 @@ fetch(
       nodes: nodeArray,
       arrows: arrowArray
     };
-
     drawD3(dataset);
   });
 
@@ -41,7 +40,7 @@ function getArrows(cleanData, nodeArray) {
 function getNodes(cleanData) {
   let nodes = cleanData.map(node => {
     return {
-      name: node.prefLabel,
+      name: node.prefLabel ? node.prefLabel : node.id,
       id: node.id
     };
   });
