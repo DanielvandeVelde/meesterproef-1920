@@ -7,6 +7,16 @@ fetch(
 
     const jsonld = ttl2jsonld.parse(ttl);
     const cleanJSON = cleanData(jsonld);
+    const dataset = {
+      nodes: [
+        //Array of nodes
+        { name: "Name" }
+      ],
+      arrows: [
+        //Arrows from to
+        { from: 0, to: 0 }
+      ]
+    };
 
     console.log(cleanJSON);
   });
