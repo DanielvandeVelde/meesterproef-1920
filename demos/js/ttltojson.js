@@ -25,7 +25,6 @@ function fetchDataset(url) {
     .then(text => {
       const jsonld = ttl2jsonld.parse(text);
       const cleanJSON = cleanData(jsonld);
-
       nodeArray = getNodes(cleanJSON);
       arrowArray = getArrows(cleanJSON, nodeArray);
 
@@ -43,14 +42,28 @@ function getArrows(cleanData, nodeArray) {
 
   cleanData.map((item, index) => {
     if (item.broader) {
-      nodeArray.forEach((node, i) => {
-        if (item.broader == node.id) {
-          arrowArray.push({
-            source: index,
-            target: i
+      if (Array.isArray(item.broader)) {
+        let broader = item.broader;
+        broader.map(broad => {
+          nodeArray.forEach((node, i) => {
+            if (broad == node.id) {
+              arrowArray.push({
+                source: index,
+                target: i
+              });
+            }
           });
-        }
-      });
+        });
+      } else {
+        nodeArray.forEach((node, i) => {
+          if (item.broader == node.id) {
+            arrowArray.push({
+              source: index,
+              target: i
+            });
+          }
+        });
+      }
     }
   });
 
@@ -72,12 +85,32 @@ function getNodes(cleanData) {
 
 function cleanData(data) {
   let cleanedData = data["@graph"].map(item => {
+    let preflabel;
+    if (Array.isArray(item["skos:prefLabel"])) {
+      item["skos:prefLabel"].map(label => {
+        if (label["@language"] === "en") {
+          preflabel = label["@value"];
+        }
+      });
+    } else {
+      preflabel = item["skos:prefLabel"] ? item["skos:prefLabel"] : item["@id"];
+    }
+
+    let broader;
+    if (Array.isArray(item["skos:broader"])) {
+      broader = item["skos:broader"].map(broad => {
+        return sanitizeString(broad["@id"]);
+      });
+    } else {
+      broader = item["skos:broader"]
+        ? sanitizeString(item["skos:broader"]["@id"])
+        : false;
+    }
+
     return {
       id: item["@id"] ? sanitizeString(item["@id"]) : false,
-      prefLabel: item["skos:prefLabel"],
-      broader: item["skos:broader"]
-        ? sanitizeString(item["skos:broader"]["@id"])
-        : false,
+      prefLabel: preflabel,
+      broader: broader,
       hiddenLabel: item["skos:hiddenLabel"] ? item["skos:hiddenLabel"] : false,
       note: item["skos:note"] ? item["skos:note"] : false
     };
@@ -87,7 +120,7 @@ function cleanData(data) {
 }
 
 function sanitizeString(string) {
-  string = string.match("([^/]+$)")[0]; //Grab everything behind the last "/"
+  string = string.match("([^/]+$)") ? string.match("([^/]+$)")[0] : string; //Grab everything behind the last "/"
   string = string.replace(/_/g, " "); //Replace "_" with space
   string = string.replace(/-/g, " "); //Replace "-" with space
   string = string //Capitalize each word
