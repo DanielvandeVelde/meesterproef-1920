@@ -335,8 +335,9 @@ function drawD3(dataset) {
     });
 
     edgelabels.attr("transform", function(d, i) {
-      if (d.target.x < d.source.x) {
-        bbox = this.getBBox();
+      var item = document.getElementsByClassName("edgelabel")[i];
+      if (d.target.x < d.source.x && item) {
+        var bbox = item.getBBox();
         rx = bbox.x + bbox.width / 2;
         ry = bbox.y + bbox.height / 2;
         return "rotate(180 " + rx + " " + ry + ")";
