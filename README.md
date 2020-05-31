@@ -2,10 +2,12 @@
 
 Hi there.
 
-This is the space reserved for my readme which will hold the most valueble information and give you some insights into how things work.  
-For now this will link to my [wiki](https://github.com/DanielvandeVelde/meesterproef-1920/wiki) which holds my debriefing as well as the first few sketches I made for my concept.
+In this readme will soon be a bunch of technical stuff about this project.  
+How to install it, how the basics of the application work (probably the API, D3 etc.).
+For now this will link to my [wiki](https://github.com/DanielvandeVelde/meesterproef-1920/wiki) which holds my debriefing as well as the first few sketches and prototypes I made for my concept.
 
-Currently I'm creating different prototypes.  
+Soon I will do some research and create different visualisations for different situations/datasets to view the data in a way thats easiest for the user.  
+ Currently I'm creating different prototypes that focus on the look & feel.
 These are based on the first sketches and are currently focused on look & feel as well as UI.  
 Currently they can be found here:
 
