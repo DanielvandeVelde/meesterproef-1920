@@ -76,7 +76,8 @@ function getNodes(cleanData) {
   nodes = cleanData.map(node => {
     return {
       name: node.prefLabel ? node.prefLabel : node.id,
-      id: node.id
+      id: node.id,
+      note: node.note ? node.note : false
     };
   });
 
@@ -141,6 +142,12 @@ function drawD3(dataset) {
 
   var colors = d3.scale.category10();
 
+  var div = d3
+    .select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
   var svg = d3
     .select("main")
     .select("svg")
@@ -191,6 +198,24 @@ function drawD3(dataset) {
     .attr({ r: 15 })
     .style("fill", function(d, i) {
       return colors(i);
+    })
+    .on("mouseover", function(d) {
+      if (d.note) {
+        div
+          .transition()
+          .duration(200)
+          .style("opacity", 0.9);
+        div
+          .html(d.note)
+          .style("left", d3.event.pageX + "px")
+          .style("top", d3.event.pageY - 28 + "px");
+      }
+    })
+    .on("mouseout", function(d) {
+      div
+        .transition()
+        .duration(500)
+        .style("opacity", 0);
     })
     .call(force.drag);
 
