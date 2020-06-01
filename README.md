@@ -3,7 +3,7 @@
 Hi there.
 
 In this readme will soon be a bunch of technical stuff about this project.  
-How to install it, how the basics of the application work (probably the API, D3 etc.).
+How to install it, how the basics of the application work (probably the API, D3 etc.).    
 For now this will link to my [wiki](https://github.com/DanielvandeVelde/meesterproef-1920/wiki) which holds my debriefing as well as the first few sketches and prototypes I made for my concept.
 
 Soon I will do some research and create different visualisations for different situations/datasets to view the data in a way thats easiest for the user.  
