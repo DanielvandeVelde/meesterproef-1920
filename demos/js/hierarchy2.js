@@ -215,6 +215,7 @@ function cleanData(data) {
         ? sanitizeString(item.parentURI)
         : "Structured Vocabulary",
       note: item.note ? item.note : false,
+      size: 50,
       keywords: item.keywords ? item.keywords : false
     };
   });
@@ -224,6 +225,7 @@ function cleanData(data) {
     id: "Structured Vocabulary",
     parent: false,
     note: false,
+    size: 50,
     keywords: false
   });
 
@@ -279,7 +281,7 @@ function chartFunction(blata) {
     .select(".sunburst")
     .append("svg")
     .style("width", "100%")
-    .style("height", "auto")
+    .style("height", "100%")
     .style("font", "10px sans-serif");
 
   const g = svg
