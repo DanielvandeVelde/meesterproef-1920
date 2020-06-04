@@ -246,10 +246,7 @@ function sanitizeString(string) {
   return string;
 }
 
-function chartFunction(blata) {
-  var data = blata[0];
-  console.log(data);
-
+function chartFunction(data) {
   const format = d3.format(",d");
   const width = 932;
   const radius = width / 6;
@@ -358,7 +355,6 @@ function chartFunction(blata) {
     );
 
     const t = g.transition().duration(750);
-
     // Transition the data on all arcs, even the ones that aren’t visible,
     // so that if this transition is interrupted, entering arcs will start
     // the next transition from the desired position.
