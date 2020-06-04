@@ -1,3 +1,14 @@
+/*
+
+ TODO:
+
+ Implement in Strvct
+ Make sure sunburst is always round
+ Sunburst doesnt want to display when data has no children.
+
+
+*/
+
 init();
 
 function init() {
@@ -203,11 +214,13 @@ function drawD3Tree(param) {
 }
 
 function output(data) {
-  console.log(data);
-  d3.select(".sunburst")
-    .select("svg")
-    .remove();
-  chartFunction(data);
+  //Sunburst is not for displaying a single item
+  if (data.children) {
+    d3.select(".sunburst")
+      .select("svg")
+      .remove();
+    chartFunction(data);
+  }
 }
 
 function cleanData(data) {
