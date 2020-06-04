@@ -5,7 +5,7 @@
  Implement in Strvct
  Make sure sunburst is always round
  Sunburst doesnt want to display when data has no children.
-
+ Give proper size of partition according to children and such
 
 */
 
@@ -214,6 +214,7 @@ function drawD3Tree(param) {
 }
 
 function output(data) {
+  console.log(data);
   //Sunburst is not for displaying a single item
   if (data.children) {
     d3.select(".sunburst")
