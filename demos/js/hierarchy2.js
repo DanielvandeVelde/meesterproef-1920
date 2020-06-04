@@ -4,7 +4,7 @@ function init() {
   getEntities().then(data => {
     const cleanJSON = cleanData(data);
     const treeData = createTreeData(cleanJSON);
-    chartFunction(treeData);
+    drawD3Tree(treeData);
   });
 }
 
@@ -189,7 +189,7 @@ function drawD3Tree(param) {
 
   // Toggle children on click.
   function click(d) {
-    output(d.data);
+    chartFunction(d.data);
     if (d.children) {
       d._children = d.children;
       d.children = null;
@@ -203,7 +203,7 @@ function drawD3Tree(param) {
 }
 
 function output(data) {
-  chartFunction(data);
+  console.log(data);
 }
 
 function cleanData(data) {
@@ -215,7 +215,7 @@ function cleanData(data) {
         ? sanitizeString(item.parentURI)
         : "Structured Vocabulary",
       note: item.note ? item.note : false,
-      size: 50,
+      size: 1,
       keywords: item.keywords ? item.keywords : false
     };
   });
@@ -225,7 +225,7 @@ function cleanData(data) {
     id: "Structured Vocabulary",
     parent: false,
     note: false,
-    size: 50,
+    size: 1,
     keywords: false
   });
 
