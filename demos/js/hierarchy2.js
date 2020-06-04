@@ -204,6 +204,9 @@ function drawD3Tree(param) {
 
 function output(data) {
   console.log(data);
+  d3.select(".sunburst")
+    .select("svg")
+    .remove();
   chartFunction(data);
 }
 
