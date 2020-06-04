@@ -189,7 +189,7 @@ function drawD3Tree(param) {
 
   // Toggle children on click.
   function click(d) {
-    chartFunction(d.data);
+    output(d.data);
     if (d.children) {
       d._children = d.children;
       d.children = null;
@@ -204,6 +204,7 @@ function drawD3Tree(param) {
 
 function output(data) {
   console.log(data);
+  chartFunction(data);
 }
 
 function cleanData(data) {
