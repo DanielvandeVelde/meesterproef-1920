@@ -233,7 +233,7 @@ function cleanData(data) {
         ? sanitizeString(item.parentURI)
         : "Structured Vocabulary",
       note: item.note ? item.note : false,
-      size: 1,
+      size: 5,
       keywords: item.keywords ? item.keywords : false
     };
   });
@@ -243,7 +243,7 @@ function cleanData(data) {
     id: "Structured Vocabulary",
     parent: false,
     note: false,
-    size: 1,
+    size: 5,
     keywords: false
   });
 
